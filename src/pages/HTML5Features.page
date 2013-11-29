@@ -1,0 +1,38 @@
+<apex:page standardController="Contact" extensions="HTML5FeaturesController" title="HTML5 Features" showHeader="true" sidebar="false" docType="html-5.0">
+    <apex:sectionHeader title="Force.com" subTitle="HTML5 Features" />
+    <apex:form id="form">
+        <apex:pageBlock title="Contact: {!Contact.Name}">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" title="Save"
+                    action="{!quickSave}" reRender="form" id="commandButton" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="contactDetails" title="Contact Details" columns="1">    
+                <apex:inputField value="{!Contact.MobilePhone}" type="tel"
+                    html-placeholder="999-999-9999"
+                    html-autofocus="true"
+                />
+                <apex:inputField value="{!Contact.Email}" type="email"
+                    html-placeholder="you@example.com$"
+                    html-pattern="^[a-zA-Z0-9._-]+@example.com$"
+                    html-title="Please enter an example.com email address"
+                />
+                <apex:inputField value="{!Contact.Birthdate}" type="date"
+                    showDatePicker="false"
+                    style="width:200px;"
+                />
+                <apex:selectRadio value="{! Contact.LeadSource}" layout="pageDirection"
+                    legendText="Select a source for this contact" borderVisible="true">
+                    <apex:selectOptions value="{! sourcesList }"/>
+                </apex:selectRadio>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="contactExtras" title="Contact Extras" columns="1">
+                <apex:input label="Steps Today" value="{! fNumber }" type="number"
+                    html-min="0" html-max="50000"
+                />
+                <apex:input label="Favorite Date in History" value="{! fDate }"
+                    type="auto"
+                />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

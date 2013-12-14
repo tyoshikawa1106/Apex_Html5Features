@@ -1,4 +1,4 @@
-VisualforceHtml5Features
+Visualforce_Html5Features
 ========================
 
 Winter'14で追加されたHTML5属性のサンプルです。
